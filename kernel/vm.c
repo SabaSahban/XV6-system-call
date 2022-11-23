@@ -208,6 +208,7 @@ uvmcreate()
 // for the very first process.
 // sz must be less than a page.
 void
+
 uvmfirst(pagetable_t pagetable, uchar *src, uint sz)
 {
   char *mem;

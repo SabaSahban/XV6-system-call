@@ -82,16 +82,21 @@ kalloc(void)
 }
 
 int
-kfreepages()
+freepages()
 {
     int count = 0;
     struct run *r;
+
     acquire(&kmem.lock);
     r = kmem.freelist;
+
+    //iterate over linked list
     while (r != 0) {
         count += 1;
         r = r->next;
     }
+
     release(&kmem.lock);
+
     return count;
 }

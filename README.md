@@ -34,10 +34,13 @@ freepages() {
   struct run *r;
   acquire(&kmem.lock);
   r = kmem.freelist;
+  
   //iterate over linked list
   while (r != 0) {
    pages += 1;
-  r = r->next; }
+   r = r->next; 
+  }
+  
   release(&kmem.lock); return pages;
 }
 ```
